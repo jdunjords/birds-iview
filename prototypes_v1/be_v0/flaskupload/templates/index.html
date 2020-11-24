@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+    <!-- 页面描述 -->
+    <meta name="description" content="Image Uploader">
+    <!-- 页面关键词 -->
+    <meta name="keywords" content="Birds iView">
+    <!-- 搜索引擎抓取 -->
+    <meta name="robots" content="index,follow">
+    <!-- 为移动设备添加 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+    <title>html Template</title>
+    <link rel="SHORTCUT ICON" href="images/mego.ico">
+    <link rel="stylesheet" type="text/css" href="">
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>Birds iView Image Uploader</h1>
+<div>
+    <form name="form_en">
+        <input type="file" name="picpath" id="picpath" style="display:none" onChange="document.form_en.path.value=this.value">
+        <input name="path" readonly>
+        <input type="button" value="Browse" onclick="document.form_en.picpath.click()">
+    </form>
+    <button class="layui-btn layui-btn-mini" id="btn_upload">upload</button>
+</div>
+</body>
+<script type="text/javascript">
+
+       $(function () {
+           $("#btn_upload").click(function () {
+               var fileObj = document.getElementById("picpath").files[0]; // js 获取文件对象
+               if (typeof (fileObj) == "undefined" || fileObj.size <= 0) {
+                   alert("Please choose an image");
+                   return;
+               }
+               var formFile = new FormData();
+               formFile.append("action", "UploadVMKImagePath");
+               formFile.append("file", fileObj); //加入文件对象
+
+               var data = formFile;
+               $.ajax({
+                   url: "/upload/",
+                   data: data,
+                   type: "post",
+                   dataType: "json",
+                   cache: false,//上传文件无需缓存
+                   processData: false,//用于对data参数进行序列化处理 这里必须false
+                   contentType: false, //必须
+                   success: function (result) {
+                       alert("Successful Upload!");
+                   },
+               })
+           })
+       })
+
+   </script>
+</html>
