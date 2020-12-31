@@ -1,4 +1,4 @@
-# vue-demo
+# capstone-1
 
 ## Project setup
 ```

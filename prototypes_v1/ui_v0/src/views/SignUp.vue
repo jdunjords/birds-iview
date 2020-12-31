@@ -27,6 +27,10 @@
 </script>
 
 <style scoped>
+  *{
+
+  }
+
 
 </style>
 

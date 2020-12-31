@@ -1,8 +1,9 @@
+
+
 <template>
- <v-container>
-    <v-row class="text-center">
-      <v-col id = "col-1">  
-          <v-card
+  <v-container>
+    <v-row class= "text-center">
+        <v-card
           height= "550"
           width = "500"
           elevation="4"
@@ -26,12 +27,8 @@
             <v-btn class="button" v-on:click="onUpload"> UPLOAD </v-btn>
             </div>
         </v-card>
-      </v-col>
-
-      <v-spacer></v-spacer>
-
-      <v-col id = "col-2">  
-          <v-card
+        <v-spacer> </v-spacer>
+        <v-card
           height= "550"
           width = "500"
           elevation="4"
@@ -39,25 +36,23 @@
           > 
             <div class = "recentUploads">
             <h2 class="text-center"> Recent Uploads </h2>  
-          
-              {{data}}
+            <div class = "data"> <h1> {{data}} </h1> </div>
             </div>
-          </v-card>
-        
-      </v-col>
+            </v-card>
     </v-row>
   </v-container>
 </template>
 
 <script>
 import axios from 'axios';
-export default {
-    name: "Demo",
+  
+  export default {
+    name: "ImageUpload",
     data(){
         return {
             defaultImage: 'assets/default.png',
             myFile: null,
-            data: null,
+            data: [],
         }
     },
     methods: {
@@ -70,31 +65,27 @@ export default {
           }
         console.log(file)
         axios.post('http://127.0.0.1:5000/upload/', form, config)
-    
+         .then(res => {
+           console.log(res)
+           alert("Succesful Upload!")
+           this.data = this.data + " "  + file.name
+         })
         }
     }
-}
+  }
 </script>
 
 <style scoped>
 
-.v-btn:not(.v-btn--round).v-size--default{
-    width: 150px;
-    height: 60px;
-    font-size: 25px;
-}
-.main{
- background-color: pink;
- height: 1000px;
-}
-
 #fileInput{
     padding: 10px;
+}
+
+.imageUpload {
+   padding: 20px;
 }
 .recentUploads {
   padding: 20px;
 }
-.imageUpload {
-   padding: 20px;
-}
 </style>
+
