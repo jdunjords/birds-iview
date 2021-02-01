@@ -1,0 +1,30 @@
+.container-fluid{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+  }
+body{
+    background-color: white;
+}
+li{
+    display: inline-block;
+    padding: 15px;
+    font-size: 25px;
+    text-align: center;
+    border: 10px;
+   }
+   
+   nav{
+     overflow: hidden;
+     list-style-type: none;
+     margin: 0px;
+     padding: 0px;
+     font-size: 25px;
+     min-height: 50px;
+   }
+   ul li::marker {
+     color: white;
+     font-size: 1.2em;
+   }
+   .active {
+     color: #B3BDB6;
+     text-decoration: none !important;
+   }

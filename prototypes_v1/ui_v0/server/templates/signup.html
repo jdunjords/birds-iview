@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>
+                pEEp Login
+            </title>
+          <!---- bootstrap -->
+          <link rel= "stylesheet" href ="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+          <!----main stylesheet-->
+          <link rel= "stylesheet" href ="{{ url_for('static', filename='css/stylesheet.css') }}">
+          <!---- javascript ----->
+          <script type=text/javascript src="{{
+            url_for('static', filename='js/main.js') }}"></script>
+        </head>
+        <body>
+            <div class = "container-fluid" > 
+                <div class= "row">
+                    <nav>
+                        <ui>
+                            <li> <a class = "active" href= "/"> pEEp Home </a> </li>
+                            <li> <a class = "myButton" href= "/mypeep"> My pEEp  </a> </li>
+                            <li> <a class = "myButton" href= "/learn"> pEEp Learn </a> </li>
+                            <li> <a class = "myButton" href= "/forum"> pEEp Forum </a> </li>
+                           <!--- <li> <a class = "myButton" href= "/blog"> pEEp Blogs </a> </li>
+                            <li> <a class = "myButton" href= "/science"> pEEp Science </a> </li>
+                            <li> <a class = "myButton" href= "/store"> pEEp Store </a> </li> -->
+                            <li> <a class = "myButton" href= "/about"> pEEp About </a> </li>
+                            <li> <a class = "myButton" href= "/signup"> pEEp Sign Up </a> </li>
+                        </ui>
+                      </nav>
+                        <div class="container">
+                            <div class="row">
+                              <div class="col-sm">
+                              </div>
+                              <div class="col-sm">
+                                <div class = "signup">
+                                    <form action= "#" method = "POST" >
+                                        <div class="form-row">
+                                          <div class="form-group col-md-6">
+                                            <label for="inputFirstName">First Name</label>
+                                            <input type="text" class="form-control" name="inputFirstName" placeholder="First Name">
+                                          </div>
+                                          <div class="form-group col-md-6">
+                                            <label for="inputLastName">Last Name</label>
+                                            <input type="text" class="form-control" name="inputLastName" placeholder="Last Name">
+                                          </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                          <label for="inputEmail">Email</label>
+                                          <input type="email" class="form-control" name="inputEmail" placeholder="myemail@email.com">
+                                        </div>
+                                        <div class="form-row">
+                                          <div class="form-group col-md-6">
+                                            <label for="inputPassword">Password</label>
+                                            <input type="password" class="form-control" name="inputPassword">
+                                          </div>
+                                          <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                              <label for="confirmPassword">Confirm Password</label>
+                                              <input type="password" class="form-control" name="confirmedPassword">
+                                            </div>
+                                         </div>
+                                         <div id= "failedResponse"> </div>
+                                        <button type="signUp" class="btn btn-primary" id ="signUpButton" onclick ="checkPasswords()" >Sign Up!</button>
+                                      </form>
+                                    </div>
+                                </div>    
+                              </div>
+                              <div class="col-sm">
+                              </div>
+                            </div>
+                          </div>
+                    </div>                      
+                </div>
+        </body>
+    </html>

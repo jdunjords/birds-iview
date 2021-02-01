@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>
+                pEEp About
+            </title>
+            <!---- bootstrap -->
+            <link rel= "stylesheet" href ="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+            <!----main stylesheet-->
+            <link rel= "stylesheet" href ="{{ url_for('static', filename='css/stylesheet.css') }}">
+        </head>
+        <body>
+            <div class = "container-fluid" > 
+                <div class= "row">
+                    <nav>
+                        <ui>
+                          <li> <a class = "active" href= "/"> pEEp Home </a> </li>
+                          <li> <a class = "myButton" href= "/mypeep"> My pEEp  </a> </li>
+                          <li> <a class = "myButton" href= "/learn"> pEEp Learn </a> </li>
+                          <li> <a class = "myButton" href= "/forum"> pEEp Forum </a> </li>
+                          <!--- <li> <a class = "myButton" href= "/blog"> pEEp Blogs </a> </li>
+                           <li> <a class = "myButton" href= "/science"> pEEp Science </a> </li>
+                           <li> <a class = "myButton" href= "/store"> pEEp Store </a> </li> -->
+                          <li> <a class = "myButton" href= "/about"> pEEp About </a> </li>
+                          <li> <a class = "myButton" href= "/signup"> pEEp Sign Up </a> </li>
+                        </ui>
+                      </nav>                
+                </div>
+            </div>
+        </body>
+    </html>
