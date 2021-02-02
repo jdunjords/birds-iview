@@ -1,4 +1,4 @@
-# Setting up the database and user
+# Database
     - must have mysql downloaded, and have the mysql.server running
         - '/usr/local/bin/mysql.server start' starts the server
     - CREATE DATABASE testflask;
@@ -13,6 +13,7 @@
     - CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';
         - might have to use 127.0.0.1 instead of localhost, this was a little wonky for me
     - GRANT ALL PRIVILEGES ON testflask.* TO 'root'@'localhost';
+    - create account "biv_admin"
 
     **NOTE:** consider mysql_secure_installation for deployment
 
@@ -21,6 +22,15 @@
         uid int,ImageFilePath VARCHAR(300), 
         PRIMARY KEY (ImageNumber), 
         FOREIGN KEY (uid) REFERENCES user (id));
+
+# Frontend
+    - index page will be login
+        - it'll have a link to creat-account page
+        - /create-account will redirect to profile page
+    - profile page
+        - display user id/name
+        - input form for uploading new pics
+        - input form for selecting images to classify
 
 
 # Random notes
