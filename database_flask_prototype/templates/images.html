@@ -2,27 +2,21 @@
 <html>
     <head>
     	<meta charset="utf-8">
-        <meta name="description" content="Image Uploader">
-        <meta name="keywords" content="Bird's iView">
-        <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
-        <title>Test Integration</title>
+        <title>Gallrey</title>
 		<script src="/static/js/jquery.min.js"></script>
 	</head>
     <body>
 		<h1>Birds iView Image Uploader</h1>
 		<div>
 			<form name="profile-form" id="profile-form" action="/create-account" method="POST">
-				<p>Name </p>
-				<input type="text" name="name" id="name">
-				<p>Email</p>
-				<input type="email" name="email" id="email">
+				<p>Name <input type="text" name="name" id="name"></p>
+				<p>Email <input type="email" name="email" id="email"></p>
 				<p><input type="submit" id="profile-upload"></p>
 			</form>
 		</div>
 		<div>
 			<form name="image-form" action="/upload-image" method="POST" enctype="multipart/form-data">
-				<p><input type="text" name="uid" id="uid"></p>
 				<p><input type="file" name="file" id="file"></p>
 				<p><input type="submit"></p>
 			</form>

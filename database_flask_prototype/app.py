@@ -47,12 +47,20 @@ def create_account():
 		mysql.connection.commit()
 		cur.close()
 		return make_response('Account created', 200)
+		# redirect(url_for('/profile'))
 
 @app.route('/upload-image', methods=['GET', 'POST'])
 def upload_image():
 	file = request.files['file']
+	uid = request.form['uid']
+	file_path = ''
 	if file.filename != '':
-		file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename).replace('\\','/'))
+		file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename).replace('\\','/')
+		file.save(file_path)
+		cur = mysql.connection.cursor()
+		cur.execute("INSERT INTO UserImages(uid, ImageFilePath) VALUES(%s, %s)",(uid, file_path))
+		mysql.connection.commit()
+		cur.close()
 	return redirect(url_for('index'))
 
 '''
