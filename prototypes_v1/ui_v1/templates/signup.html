@@ -33,21 +33,26 @@
                             <div class="row">
                               <div class="col-sm"></div>
                               <div class="col-sm">
+                              <!-- sign up card-->
                               <div class = "signup-card">
                                 <div class = "signup-card-content">
                                   <form action= "#" method = "POST" >
                                       <div class="form-row">
+                                      <!--- first name -->
                                         <div class = "row">
                                           <div class="form-group col-md-6">
                                             <label for="inputFirstName">First Name</label>
                                             <input type="text" class="form-control" name="inputFirstName" placeholder="First Name">
                                           </div>
+                                      <!---- last name -->
                                           <div class="form-group col-md-6">
                                             <label for="inputLastName">Last Name</label>
                                             <input type="text" class="form-control" name="inputLastName" placeholder="Last Name">
                                           </div>
                                         </div>
+                                     <!--end form row-->
                                      </div>
+                                     <!---- email row -->
                                       <div class="form-row">
                                         <div class = "row">
                                           <div class="form-group col-md-12">
@@ -55,13 +60,70 @@
                                             <input type="email" class="form-control" name="inputEmail" placeholder="myemail@gmail.com">
                                           </div>
                                         </div>
+                                     <!--end form row-->
                                      </div>
-                    
+                                     <!----- username row -->
+                                     <div class="form-row">
+                                      <div class = "row">
+                                        <div class="form-group col-md-12">
+                                          <label for="inputUsername">Username</label>
+                                          <input type="text" class="form-control" name="inputUsername" placeholder="username">
+                                        </div>
+                                      </div>
+                                    <!--end form row-->
+                                   </div>
+                                   <!-- password -->
+                                   <div class="form-row">
+                                    <div class = "row">
+                                      <div class="form-group col-md-12">
+                                        <label for="inputPassword">Password</label>
+                                        <input type="password" class="form-control" name="inputPassword" 
+                                             id="inputPassword" placeholder="***********">
+                                      </div>
+                                    </div>
+                                 <!--end form row-->
+                                 </div>
+                                 <!---- confirmed password -->
+                                 <div class="form-row">
+                                  <div class = "row">
+                                    <div class="form-group col-md-12">
+                                      <label for="confirmedPassword"> Confirm Password</label>
+                                      <input type="password" class="form-control" name="confirmedPassword" 
+                                        id="confirmedPassword" placeholder="***********">
+                                    </div>
+                                  </div>
+                               <!--end form row-->
                                </div>
-                            <div class="col-sm"></div>
-                        </div>
-                      </div>
-                  </div>                      
+
+                               <!-- sign up button-->
+                               <div class="form-row">
+                                <div class = "row">
+                                  <div class = "col">
+                                    <button type="signup" class="btn btn-dark" id ="signUpButton"
+                                    onclick = "checkPasswords()"> SIGN UP </button>
+                                  </div>
+                                  <div class = "col">
+                                   <p style = "padding: 5px;"> already have an account? <a href = "/"> login here</a> </p>
+                                  </div>
+                                </div>
+                               <!--end form row-->
+                              </div>
+                            <!-- end form tag-->  
+                           </form>
+
+                            </div>
+                          </div>
+                       
+                 <!-- div class container end-->
+                 </div>   
+                 <div class="col-sm"></div>
+
+             <!-- div class sign up end-->                   
+             </div>
+          <!-- div class row-->
+          </div>
+       <!-- div class container fluid-->
+      </div>
+      </div>
             </div>
-        </body>
     </html>
