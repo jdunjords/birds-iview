@@ -1,0 +1,86 @@
+.container-fluid{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+  }
+body{
+    background-color: white;
+}
+li{
+    display: inline-block;
+    padding: 15px;
+    font-size: 25px;
+    text-align: center;
+    border: 10px;
+   }
+   
+   nav{
+     overflow: hidden;
+     list-style-type: none;
+     margin: 0px;
+     padding: 0px;
+     font-size: 25px;
+     min-height: 50px;
+   }
+   ul li::marker {
+     color: white;
+     font-size: 1.2em;
+   }
+   .active {
+     color: #B3BDB6;
+     text-decoration: none !important;
+   }
+
+.login-card{
+  background: #fbfbfb;
+  border-radius: 8px;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+  height: 410px;
+  margin: 6rem auto 8.1rem auto;
+  width: 329px;
+}
+
+.myButton {
+  color: grey;
+  text-decoration: none !important;
+}
+
+.btn  {
+  width: 150px;
+  height: 50px;
+  font-size: 25px;
+}
+.card {
+  margin: 10px;
+}
+.card-content {
+  padding: 12px 44px;
+  text-align: center;
+}
+
+.card-title {
+  font-family: "Raleway Thin", sans-serif;
+  letter-spacing: 4px;
+  padding-bottom: 23px;
+  padding-top: 13px;
+  text-align: center;
+}
+
+.form-row {
+  border: none;
+  outline: none;
+  padding-top: 14px;
+}
+
+#LoginButton {
+  margin: 10px;
+}
+
+#signUpButton {
+  margin: 10px;
+}
+.signup-card {
+  background: #fbfbfb;
+  border-radius: 8px;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+  margin: 6rem auto 8.1rem auto;
+  height: 500px;
+}
