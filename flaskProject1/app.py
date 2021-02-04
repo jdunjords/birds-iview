@@ -1,11 +1,11 @@
 from flask import Flask,render_template,request,redirect,jsonify
 import os
 from flask_cors import CORS
-UPLOAD_FOLDER = './static/uploads/'  #文件存放路径
-ALLOWED_EXTENSIONS = set(['jpg','png','pdf']) #限制上传文件格式
+UPLOAD_FOLDER = './static/uploads/'  #the path of files
+ALLOWED_EXTENSIONS = set(['jpg','png','pdf']) #Limits upload file formats
 BASE_DIR = 'D:\\flaskProject1\\'
 app = Flask(__name__,template_folder="templates",static_folder="static")
-CORS(app)#跨域
+CORS(app)#Cross-Origin Resource Sharing
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
 print(BASE_DIR)
@@ -31,7 +31,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = file.filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename).replace('\\','/'))
-            return jsonify({'data':'上传成功！'})
+            return jsonify({'data':'Upload Success！'})
 @app.route('/show_pic/', methods=['GET', 'POST'])
 def show_file():
     list_pics = os.listdir(os.path.join(BASE_DIR,'static','uploads'))
