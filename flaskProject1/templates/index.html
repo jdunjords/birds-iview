@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+    <!-- 页面描述 -->
+    <meta name="description" content="birdsiview">
+    <!-- 页面关键词 -->
+    <meta name="keywords" content="birdsiview">
+    <!-- 搜索引擎抓取 -->
+    <meta name="robots" content="index,follow">
+    <!-- 为移动设备添加 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+    <title>html template</title>
+    <link rel="SHORTCUT ICON" href="images/mego.ico">
+    <link rel="stylesheet" type="text/css" href="">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <style>
+        .head{
+	text-align: right;
+	border-bottom: 1px solid black;
+	position: relative;
+}
+.head_l{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	font-size: 12px;
+}
+.head_r{
+	margin-right: 10px;
+}
+.top{
+	height: 62%;
+	border-bottom: 3px solid black;
+}
+.bottom{
+	height: 38%;
+}
+.tiaoxingma{
+	text-align: center;
+	height:100px;
+}
+.tiaoxingma svg{
+	width: 100%;
+	height: 99%;
+}
+.tiaoxingma-sm{
+	width: 78%;
+}
+.tiaoxingma-sm img{
+	width: 100%;
+	height: 99%;
+}
+.shengnei{
+	border-top: 1px solid black;
+	height: 30px;
+	font-size: 23px;
+	text-align: center;
+	font-weight: 500;
+}
+.shengnei2{
+	border-top: 1px solid black;
+    height: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    display: flex;
+    font-weight: 400;
+}
+.shengnei2 img{
+	width: 20px;
+	height: 20px;
+}
+.shou{
+	display: flex;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	height: 40%;
+	/*min-height: 18%;*/
+	font-size: 25px;
+}
+.ji{
+	display: flex;
+	border-bottom: 1px solid black;
+	min-height: 8%;
+	font-size: 12px;
+}
+.shou_left{
+	border-right: 1px solid black;
+	width: 75%;
+	display: flex;
+}
+.shou_left img{
+	width: 20px;
+	height: 20px;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+.shou_left div{
+	/*position: absolute;
+    bottom: 50%;
+    margin-bottom: -9px;
+    left: 45%;*/
+}
+.shou_right{
+	width: 25%;
+	font-size: 12px;
+	height: 100%;
+}
+.shou_right_d1{
+	height: 60%;
+}
+.shou_right_d2{
+	border-top: 1px solid black;
+	height: 20%;
+}
+p{
+	margin: 0;
+	padding: 0;
+}
+.jiancheng{
+	width: 60%;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+.guige{
+	width: 20%;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+.shuliang{
+	width: 20%;
+	border-bottom: 1px solid black;
+}
+.gooditem{
+	font-size: 10px;
+	width: 100%;
+	border-bottom: 1px dashed black;
+	padding-bottom: 5px;
+}
+
+    </style>
+</head>
+<body>
+
+<h1>Birds iView Upload</h1>
+<div>
+    <form name="form_en">
+        <input type="file" name="picpath" id="picpath" style="display:none" onChange="document.form_en.path.value=this.value">
+        <input name="path" readonly>
+        <input type="button" value="Browse" onclick="document.form_en.picpath.click()">
+    </form>
+    <button class="layui-btn layui-btn-mini" id="btn_upload">upload</button>
+</div>
+<div id="boxes"></div>
+</body>
+<script type="text/javascript">
+       $(function () {
+           $("#btn_upload").click(function () {
+               var fileObj = document.getElementById("picpath").files[0]; // js 获取文件对象
+               if (typeof (fileObj) == "undefined" || fileObj.size <= 0) {
+                   alert("Please choose a picture");
+                   return;
+               }
+               var formFile = new FormData();
+               formFile.append("action", "UploadVMKImagePath");
+               formFile.append("file", fileObj); //加入文件对象
+
+               var data = formFile;
+               $.ajax({
+                   url: "/upload/",
+                   data: data,
+                   type: "post",
+                   dataType: "json",
+                   cache: false,//上传文件无需缓存
+                   processData: false,//用于对data参数进行序列化处理 这里必须false
+                   contentType: false, //必须
+                   success: function (result) {
+                       alert("Upload Success!");
+                       window.location.reload();
+                   },
+               })
+           })
+       })
+			$.ajax({
+                   url: "/show_pic/",
+                   type: "get",
+                   dataType: "json",
+                   success: function (result) {
+                       for(var i=0;i<result.data.length;i++){
+                           var html = '<div><a href="'+result.data[i]+'" alt="" >'+result.data[i].split('/')[3]+'</a></div>';
+						   $("#boxes").append(html);
+					   }
+                   },
+               })
+   </script>
+</html>
