@@ -4,13 +4,13 @@
 
 <meta charset="utf-8">
 
-    <!-- 页面描述 -->
+    <!-- Page description -->
     <meta name="description" content="birdsiview">
-    <!-- 页面关键词 -->
+    <!-- keywords -->
     <meta name="keywords" content="birdsiview">
-    <!-- 搜索引擎抓取 -->
+    <!-- Search engine crawl -->
     <meta name="robots" content="index,follow">
-    <!-- 为移动设备添加 viewport -->
+    <!-- Add viewport for mobile devices -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
     <title>html template</title>
     <link rel="SHORTCUT ICON" href="images/mego.ico">
@@ -160,14 +160,14 @@ p{
 <script type="text/javascript">
        $(function () {
            $("#btn_upload").click(function () {
-               var fileObj = document.getElementById("picpath").files[0]; // js 获取文件对象
+               var fileObj = document.getElementById("picpath").files[0]; // js Get file object
                if (typeof (fileObj) == "undefined" || fileObj.size <= 0) {
                    alert("Please choose a picture");
                    return;
                }
                var formFile = new FormData();
                formFile.append("action", "UploadVMKImagePath");
-               formFile.append("file", fileObj); //加入文件对象
+               formFile.append("file", fileObj); //Add file object
 
                var data = formFile;
                $.ajax({
@@ -175,9 +175,9 @@ p{
                    data: data,
                    type: "post",
                    dataType: "json",
-                   cache: false,//上传文件无需缓存
-                   processData: false,//用于对data参数进行序列化处理 这里必须false
-                   contentType: false, //必须
+                   cache: false,//Upload files without caching
+                   processData: false,//Used to serialize the data parameter. This must be false
+                   contentType: false, //This must be false
                    success: function (result) {
                        alert("Upload Success!");
                        window.location.reload();
